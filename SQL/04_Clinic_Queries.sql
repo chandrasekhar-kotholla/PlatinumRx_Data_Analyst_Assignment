@@ -1,6 +1,5 @@
 ## Find the revenue we got from each sales channel in a given year 
 
-
 SELECT sales_channel,
        SUM(amount) AS total_revenue
 FROM clinic_sales
@@ -9,7 +8,6 @@ GROUP BY sales_channel;
 
 
 ## Find top 10 the most valuable customers for a given year 
-
 
 SELECT uid,
        SUM(amount) AS total_spent
@@ -21,7 +19,6 @@ LIMIT 10;
 
 
 ##  Find month wise revenue, expense, profit , status (profitable / not-profitable) for a given year
-
 
 WITH revenue AS (
     SELECT cid,
@@ -56,7 +53,6 @@ ON r.cid = e.cid AND r.month = e.month;
 
 ##  For each city find the most profitable clinic for a given month
 
-
 WITH sales AS (
     SELECT cid, SUM(amount) AS revenue
     FROM clinic_sales
@@ -88,7 +84,6 @@ WHERE rnk = 1;
 
 
  ## For each state find the second least profitable clinic for a given month 
-
 
 WITH sales AS (
     SELECT cid, SUM(amount) AS revenue
