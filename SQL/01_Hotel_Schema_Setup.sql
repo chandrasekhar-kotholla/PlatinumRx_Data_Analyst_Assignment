@@ -1,6 +1,6 @@
 -- USERS
 CREATE TABLE users (
-    user_id VARCHAR(50),
+    user_id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(100),
     phone_number VARCHAR(20),
     mail_id VARCHAR(100),
@@ -8,54 +8,70 @@ CREATE TABLE users (
 );
 
 INSERT INTO users VALUES
-('u1','John Doe','9711111111','john@example.com','Street A'),
-('u2','Alice','9722222222','alice@example.com','Street B'),
-('u3','Bob','9733333333','bob@example.com','Street C');
+('u11','Amit Verma','9812345678','amit.verma@gmail.com','Whitefield, Bangalore'),
+('u12','Neha Kapoor','9898765432','neha.kapoor@yahoo.com','Banjara Hills, Hyderabad'),
+('u13','Rohan Shah','9765432109','rohan.shah@outlook.com','Andheri East, Mumbai'),
+('u14','Kiran Rao','9876501234','kiran.rao@gmail.com','Indiranagar, Bangalore'); -- no booking user
 
 
 -- BOOKINGS
 CREATE TABLE bookings (
-    booking_id VARCHAR(50),
+    booking_id VARCHAR(50) PRIMARY KEY,
     booking_date DATETIME,
     room_no VARCHAR(50),
-    user_id VARCHAR(50)
+    user_id VARCHAR(50),
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
 INSERT INTO bookings VALUES
-('b1','2021-11-10 10:00:00','r1','u1'),
-('b2','2021-11-15 12:00:00','r2','u1'),
-('b3','2021-10-05 09:00:00','r3','u2'),
-('b4','2021-11-20 14:00:00','r4','u3'),
-('b5','2021-09-25 08:00:00','r5','u2');
+('b11','2023-04-10 09:00:00','101','u11'),
+('b12','2023-04-12 18:30:00','102','u11'),
+('b16','2023-04-12 18:30:00','103','u11'),
+('b13','2023-04-15 11:45:00','201','u12'),
+('b14','2023-04-18 14:20:00','305','u13'),
+('b15','2023-04-20 08:10:00','110','u12'),
+('b17','2023-04-25 10:00:00','999','u13');
 
 
 -- ITEMS
 CREATE TABLE items (
-    item_id VARCHAR(50),
+    item_id VARCHAR(50) PRIMARY KEY,
     item_name VARCHAR(100),
     item_rate INT
 );
 
 INSERT INTO items VALUES
-('i1','Paratha',20),
-('i2','Veg',100),
-('i3','Rice',50);
+('i11','Idli Sambar',50),
+('i12','Chicken Biryani',200),
+('i13','Veg Fried Rice',130),
+('i14','Cold Coffee',90),
+('i15','Gulab Jamun',70);
 
 
 -- BOOKING COMMERCIALS
 CREATE TABLE booking_commercials (
-    id VARCHAR(50),
+    id VARCHAR(50) PRIMARY KEY,
     booking_id VARCHAR(50),
     bill_id VARCHAR(50),
     bill_date DATETIME,
     item_id VARCHAR(50),
-    item_quantity FLOAT
+    item_quantity FLOAT,
+    FOREIGN KEY (booking_id) REFERENCES bookings(booking_id),
+    FOREIGN KEY (item_id) REFERENCES items(item_id)
 );
 
 INSERT INTO booking_commercials VALUES
-('c1','b1','bill1','2021-11-10','i1',2),
-('c2','b1','bill1','2021-11-10','i2',1),
-('c3','b2','bill2','2021-11-15','i2',5),
-('c4','b3','bill3','2021-10-05','i1',50),
-('c5','b4','bill4','2021-11-20','i3',10),
-('c6','b5','bill5','2021-09-25','i1',1);
+('c11','b11','bill201','2023-04-10','i11',4),
+('c12','b11','bill201','2023-04-10','i12',1),
+
+('c13','b12','bill202','2023-04-12','i12',3),
+('c14','b12','bill202','2023-04-12','i14',2),
+
+('c15','b13','bill203','2023-04-15','i11',6),
+('c16','b13','bill203','2023-04-15','i13',2),
+
+('c17','b14','bill204','2023-04-18','i13',5),
+('c18','b14','bill204','2023-04-18','i15',4),
+
+('c19','b15','bill205','2023-04-20','i11',3),
+('c20','b15','bill205','2023-04-20','i12',10);
