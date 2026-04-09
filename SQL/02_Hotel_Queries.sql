@@ -10,7 +10,7 @@ WHERE rn = 1;
 
 
 ## Get booking_id and total billing amount of every booking created in November, 2021 ##
-
+    
 SELECT bc.booking_id,
        SUM(bc.item_quantity * i.item_rate) AS total_amount
 FROM booking_commercials bc
