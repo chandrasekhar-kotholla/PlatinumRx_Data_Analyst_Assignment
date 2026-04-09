@@ -1,4 +1,4 @@
-##  For every user in the system, get the user_id and last booked room_no ##
+##  For every user in the system, get the user_id and last booked room_no 
 
 SELECT user_id, room_no
 FROM (
@@ -9,7 +9,7 @@ FROM (
 WHERE rn = 1;
 
 
-## Get booking_id and total billing amount of every booking created in November, 2021 ##
+## Get booking_id and total billing amount of every booking created in November, 2021 
     
 SELECT bc.booking_id,
        SUM(bc.item_quantity * i.item_rate) AS total_amount
@@ -19,7 +19,7 @@ WHERE MONTH(bc.bill_date) = 11 AND YEAR(bc.bill_date) = 2021
 GROUP BY bc.booking_id;
 
 
-## . Get bill_id and bill amount of all the bills raised in October, 2021 having bill amount >1000##
+## . Get bill_id and bill amount of all the bills raised in October, 2021 having bill amount >1000
 
 SELECT bill_id,
        SUM(bc.item_quantity * i.item_rate) AS bill_amount
@@ -30,7 +30,7 @@ GROUP BY bill_id
 HAVING bill_amount > 1000;
 
 
-## Determine the most ordered and least ordered item of each month of year 2021 ## 
+## Determine the most ordered and least ordered item of each month of year 2021  
  
 WITH item_orders AS (
     SELECT 
@@ -53,7 +53,7 @@ WHERE r_desc = 1 OR r_asc = 1
 ORDER BY month;
 
 
-##  Find the customers with the second highest bill value of each month of year 2021 ##
+##  Find the customers with the second highest bill value of each month of year 2021 
 
 WITH bill_totals AS (
     SELECT 
