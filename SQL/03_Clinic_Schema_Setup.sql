@@ -1,5 +1,4 @@
 -- CLINICS
-
 CREATE TABLE clinics (
     cid VARCHAR(50),
     clinic_name VARCHAR(100),
@@ -15,7 +14,6 @@ INSERT INTO clinics VALUES
 
 
 -- CUSTOMER
-
 CREATE TABLE customer (
     uid VARCHAR(50),
     name VARCHAR(100),
@@ -29,7 +27,6 @@ INSERT INTO customer VALUES
 
 
 -- CLINIC_SALES
-
 CREATE TABLE clinic_sales (
     oid VARCHAR(50),
     uid VARCHAR(50),
@@ -48,7 +45,6 @@ INSERT INTO clinic_sales VALUES
 
 
 -- EXPENSES
-
 CREATE TABLE expenses (
     eid VARCHAR(50),
     cid VARCHAR(50),
