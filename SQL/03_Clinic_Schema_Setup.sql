@@ -8,9 +8,10 @@ CREATE TABLE clinics (
 );
 
 INSERT INTO clinics VALUES
-('c1','XYZ Clinic','CityA','StateA','India'),
-('c2','ABC Clinic','CityA','StateA','India'),
-('c3','PQR Clinic','CityB','StateB','India');
+('c101','HealthFirst Clinic','Bangalore','Karnataka','India'),
+('c102','CarePlus Clinic','Hyderabad','Telangana','India'),
+('c103','Wellness Center','Mumbai','Maharashtra','India'),
+('c104','MediCare Hub','Bangalore','Karnataka','India');
 
 
 -- CUSTOMER
@@ -21,9 +22,11 @@ CREATE TABLE customer (
 );
 
 INSERT INTO customer VALUES
-('u1','John Doe','9711111111'),
-('u2','Alice','9722222222'),
-('u3','Bob','9733333333');
+('u101','Rahul Sharma','9811111111'),
+('u102','Sneha Reddy','9822222222'),
+('u103','Amit Verma','9833333333'),
+('u104','Priya Nair','9844444444'),
+('u105','Test User',NULL); -- edge case
 
 
 -- CLINIC_SALES
@@ -37,11 +40,14 @@ CREATE TABLE clinic_sales (
 );
 
 INSERT INTO clinic_sales VALUES
-('o1','u1','c1',1000,'2021-09-10 10:00:00','online'),
-('o2','u2','c1',2000,'2021-09-15 12:00:00','offline'),
-('o3','u1','c2',3000,'2021-09-20 14:00:00','online'),
-('o4','u3','c3',4000,'2021-09-25 16:00:00','partner'),
-('o5','u2','c2',1500,'2021-10-05 11:00:00','online');
+('o101','u101','c101',1200,'2023-06-10 10:00:00','online'),
+('o102','u102','c101',2500,'2023-06-12 12:30:00','offline'),
+('o103','u101','c102',3200,'2023-06-15 14:00:00','online'),
+('o104','u103','c103',4500,'2023-06-18 16:45:00','partner'),
+('o105','u104','c104',2800,'2023-06-20 11:15:00','online'),
+('o106','u101','c101',1800,'2023-06-22 09:00:00','offline'),
+('o107','u102','c102',7000,'2023-06-25 17:30:00','online'),
+('o108','u103','c103',2200,'2023-07-02 10:00:00','online');
 
 
 -- EXPENSES
@@ -54,8 +60,10 @@ CREATE TABLE expenses (
 );
 
 INSERT INTO expenses VALUES
-('e1','c1','Supplies',500,'2021-09-10 08:00:00'),
-('e2','c1','Maintenance',700,'2021-09-15 09:00:00'),
-('e3','c2','Staff',1000,'2021-09-20 10:00:00'),
-('e4','c3','Equipment',1500,'2021-09-25 11:00:00'),
-('e5','c2','Rent',800,'2021-10-05 12:00:00');
+('e101','c101','Medical Supplies',800,'2023-06-10 08:00:00'),
+('e102','c101','Maintenance',1200,'2023-06-12 09:30:00'),
+('e103','c102','Staff Salary',2000,'2023-06-15 10:00:00'),
+('e104','c103','Equipment Purchase',3000,'2023-06-18 11:15:00'),
+('e105','c104','Utilities',1500,'2023-06-20 12:00:00'),
+('e106','c101','Electricity Bill',600,'2023-06-22 13:00:00'),
+('e107','c102','Rent',2500,'2023-07-02 14:00:00');
